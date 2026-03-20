@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest-dark: #0a0f08;
+  --forest-deep: #0d1a0b;
+  --forest-green: #1a3d1a;
+  --forest-mid: #2d6a2d;
+  --forest-bright: #4a9e4a;
+  --forest-light: #7ec87e;
+  --forest-glow: #a8e6a8;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --cream: #f5f0e8;
+  --mist: rgba(168, 230, 168, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  background: var(--forest-dark);
+  color: var(--cream);
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* Glowing line divider */
+.glow-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--forest-bright), transparent);
+}
+
+/* Animated gradient bg */
+.gradient-bg {
+  background: radial-gradient(ellipse at 20% 50%, rgba(26, 61, 26, 0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(45, 106, 45, 0.2) 0%, transparent 50%),
+              var(--forest-dark);
+}
+
+/* Fade in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(74, 158, 74, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(74, 158, 74, 0.6); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes grow-bar {
+  from { width: 0%; }
+  to { width: var(--target-width); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--forest-bright) !important;
+  box-shadow: 0 20px 60px rgba(74, 158, 74, 0.2);
+}
+
+/* Tree ring decorations */
+.tree-ring {
+  border-radius: 50%;
+  border: 1px solid rgba(74, 158, 74, 0.15);
+  position: absolute;
+}
+
+/* Number counter style */
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--forest-glow), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tag style */
+.tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--forest-bright);
+  border: 1px solid var(--forest-bright);
+  padding: 3px 10px;
+  display: inline-block;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--forest-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--forest-mid);
+  border-radius: 2px;
+}
+
+/* Section transition */
+section {
+  position: relative;
+}
+
+.section-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgba(74, 158, 74, 0.06);
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Vertical text */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
