@@ -89,16 +89,22 @@ export default function Hero() {
       </div>
 
       {/* Navigation bar */}
-      <nav className='absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-20'>
+      <nav
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className='fixed top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50 cursor-pointer
+           bg-gradient-to-b from-[#0a0f08]/90 via-[#0a0f08]/60 to-transparent
+           backdrop-blur-md border-b border-green-900/20'
+      >
         <div className='tag'>FORS200</div>
         <div className='flex items-center gap-6'>
-          <span className='font-mono text-xs text-green-400/60'>
+          {/* <span className='font-mono text-xs text-green-400/60'>
             Ой судлалын үндэс
-          </span>
-          <div className='tag'>2026</div>
+          </span> */}
+          <div className='tag'>Ой судлал</div>
         </div>
       </nav>
-      <div className='flex items-center justify-center gap-6 mt-4'>
+
+      <div className='flex items-center justify-center gap-6 mt-20'>
         <img
           src='./images/num-logo.png'
           alt='Монгол улсын их сургууль лого'
@@ -113,7 +119,7 @@ export default function Hero() {
           style={{ animationDelay: "0.05s", opacity: 0 }}
         >
           <div className='w-12 h-px bg-green-500/50' />
-          <span className='font-mono font-bold text-3xl text-white-400/70 tracking-widest uppercase'>
+          <span className='font-mono font-bold text-xl text-white-400/70 tracking-widest uppercase'>
             Монгол улсын их сургууль · Ой судлал хичээлийн тайлан вебсайт
           </span>
         </div>

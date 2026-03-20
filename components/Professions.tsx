@@ -57,7 +57,7 @@ export default function Professions() {
 
   return (
     <section className="relative py-24 px-8 md:px-16 lg:px-24 gradient-bg">
-      <div className="section-number">03</div>
+      <div className="section-number">04</div>
 
       <div className="tag mb-4">Мэргэжилтэй холболт</div>
       <h2 className="font-display text-4xl md:text-5xl font-bold mb-12">

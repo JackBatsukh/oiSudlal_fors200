@@ -31,7 +31,7 @@ export default function Team() {
       className='relative py-24 px-8 md:px-16 lg:px-24'
       style={{ background: "#080d06" }}
     >
-      <div className='section-number'>04</div>
+      <div className='section-number'>05</div>
 
       <div className='flex flex-col md:flex-row justify-between items-start gap-8 mb-16'>
         <div>
