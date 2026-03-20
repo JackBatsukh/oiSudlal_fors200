@@ -91,15 +91,12 @@ export default function Hero() {
       {/* Navigation bar */}
       <nav
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className='fixed top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50 cursor-pointer
+        className='absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-6 z-50 cursor-pointer
            bg-gradient-to-b from-[#0a0f08]/90 via-[#0a0f08]/60 to-transparent
            backdrop-blur-md border-b border-green-900/20'
       >
         <div className='tag'>FORS200</div>
         <div className='flex items-center gap-6'>
-          {/* <span className='font-mono text-xs text-green-400/60'>
-            Ой судлалын үндэс
-          </span> */}
           <div className='tag'>Ой судлал</div>
         </div>
       </nav>
